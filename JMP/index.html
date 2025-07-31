@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>STAT 312 | JMP</title>
+        <link rel="stylesheet" href="../../base.css">
+        <link rel="stylesheet" href="../../light.css" id="theme">
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const theme = localStorage.getItem("theme") || "light";
+                document.getElementById("theme").href = "../../" + theme + ".css";
+                document.getElementById("themeToggle").innerHTML = theme === "light" ? "&#127769;" : "&#x2600;&#xfe0f;";
+              });
+
+              function toggleTheme() {
+                const themeLink = document.getElementById("theme");
+                const btn = document.getElementById("themeToggle");
+                const isDark = themeLink.href.includes("dark.css");
+                const next = isDark ? "light" : "dark";
+                themeLink.href = "../../" + next + ".css";
+                localStorage.setItem("theme", next);
+                btn.innerHTML = next === "light" ? "&#127769;" : "&#x2600;&#xfe0f;";
+              }
+                // Load font size from localStorage
+                document.addEventListener("DOMContentLoaded", () => {
+                    const size = parseInt(localStorage.getItem("fontSize") || "0");
+                    applyFontSize(size);
+                  });
+
+                  function adjustFont(change) {
+                    let size = parseInt(localStorage.getItem("fontSize") || "0");
+                    size = (change === 0) ? 0 : size + change;
+                    size = Math.max(-3, Math.min(5, size)); // Clamp from -3 to +5
+                    localStorage.setItem("fontSize", size);
+                    applyFontSize(size);
+                  }
+
+                  function applyFontSize(step) {
+                    const scale = 100 + step * 20; // 20% steps: 40% to 200%
+                    document.body.style.fontSize = `${scale}%`;
+                  }
+            </script>
+<body>
+  <header>
+    <h1>STAT 312: <span class="soft">JMP</span> Scripts</h1>
+    <nav>
+      <a href="../../index.html">Home</a>
+      <a href="https://ecampus.wvu.edu" target="_blank" rel="noopener noreferrer">
+        eCampus &#8599;
+      </a>
+      <a href="../index.html">STAT 312</a>
+      <div id="fontToggle" style="display: inline-flex; align-items: center; gap: 0.4rem;">
+        <button onclick="adjustFont(-1)" title="Smaller font">&#x25BC;</button> <!-- ▼ -->
+        <button onclick="adjustFont(0)" title="Default font size">&#128292</button>     <!-- 🔤 -->
+        <button onclick="adjustFont(1)" title="Larger font">&#x25B2;</button>   <!-- ▲ -->
+      </div>
+          <button id="themeToggle" onclick="toggleTheme()">&#127769;</button>
+    </nav>
+  </header>
+
+  <main>
+      <section>
+        <h2><span class="soft">JMP</span> Scripts</h2>
+        <ul class="dataset-list">
+          <li><a href="Amyloid.jmp" download>Amyloid.jmp</a></li>
+          <li><a href="AppleStock.jmp" download>AppleStock.jmp</a></li>
+          <li><a href="ArcheryData.jmp" download>ArcheryData.jmp</a></li>
+          <!-- more files -->
+        </ul>
+      </section>
+
+  </main>
+
+  <footer>
+    <p>2025 Ken Ryan</p>
+  </footer>
+</body>
+</html>
+
+
