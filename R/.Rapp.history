@@ -1,0 +1,1021 @@
+kruskal.test(Grade~Exam,exam)
+exam
+e=abs(resid(lm(Grade~Student,exam)))#
+anova(lm(e~exam$Student)) #Levene's test
+exam
+lm(Grade~Exam[sample(1:nrow(exam))],exam)
+summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistics
+summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic
+summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1]
+F
+#Slide 492#
+Fstat=sapply(1:10^3, summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])
+Fstat=sapply(1:10^3, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])
+hist(Fstat)
+#Slide 492#
+Fstat=sapply(1:10^3, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])#
+hist(Fstat,xlab="F")#
+abline(summary(fexam)$fstatistic[1],col="red",lwd=3)
+summary(fexam)$fstatistic[1]
+#Slide 492#
+Fstat=sapply(1:10^3, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])#
+hist(Fstat,xlab="F")#
+abline(v=summary(fexam)$fstatistic[1],col="red",lwd=3)
+#Slide 492#
+Fstat=sapply(1:10^3, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])#
+hist(Fstat,xlab="F",main="Permutation Distribution of F")#
+(F=summary(fexam)$fstatistic[1]) #Test statistic#
+abline(v=F,col="red",lwd=3)#
+mean(Fstat>F) #p-value
+exam$Exam[sample(1:nrow(exam))]
+#Slide 492#
+Fstat=sapply(1:10^3, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])#
+hist(Fstat,xlab="F",main="Permutation Distribution of F")#
+(F=summary(fexam)$fstatistic[1]) #Test statistic#
+abline(v=F,col="red",lwd=3)#
+mean(Fstat>F) #p-value
+Fstat=sapply(1:10^4, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])#
+hist(Fstat,xlab="F",main="Permutation Distribution of F")#
+(F=summary(fexam)$fstatistic[1]) #Test statistic#
+abline(v=F,col="red",lwd=3)#
+mean(Fstat>F) #p-value
+#Slide 492 (first step takes a min)#
+Fstat=sapply(1:10^4, function(i) summary(lm(Grade~Exam[sample(1:nrow(exam))],exam))$fstatistic[1])#
+hist(Fstat,xlab="F",main="Permutation Distribution of F")#
+(F=summary(fexam)$fstatistic[1]) #Test statistic#
+abline(v=F,col="red",lwd=3)#
+mean(Fstat>F) #p-value
+exam
+exam$Student
+model.matrix(~exam$Student-1)
+with(exam,model.matrix(~Student-1))
+?model.matrix
+Student=exam$Student#
+cbine(Student,model.matrix(~Student-1)))
+#Slide 505#
+Student=exam$Student#
+cbind(Student,model.matrix(~Student-1)))
+Student=exam$Student#
+cbind(Student,model.matrix(~Student-1))
+student
+Student
+#Slide 505#
+Student=exam$Student#
+data.frame(cbind(Student,model.matrix(~Student-1)))
+Student=exam$Student#
+data.frame(Student,model.matrix(~Student-1))
+Grade=exam$Grade#
+Student=exam$Student#
+data.frame(Student,model.matrix(~Student-1))#
+anova(lm(Grade~Student))
+#Slide 505#
+Grade=exam$Grade#
+Student=exam$Student#
+data.frame(Student,model.matrix(~Student-1))#
+anova(lm(Grade~Student))#
+anova(lm(Grade~StudentAdam+StudentBrenda+StudentCathy+StudentDave))
+Grade=exam$Grade#
+Student=exam$Student#
+(df=data.frame(Student,Grade,model.matrix(~Student-1)))
+Grade=exam$Grade#
+Student=exam$Student#
+(df=data.frame(Student,Grade,model.matrix(~Student-1)))#
+anova(lm(Grade~Student))#
+anova(lm(Grade~StudentAdam+StudentBrenda+StudentCathy+StudentDave,df))
+anova(lm(Grade~Student))#
+anova(lm(Grade~StudentAdam+StudentBrenda+StudentCathy+StudentDave,df))
+pulse=read312("Pulse.csv")
+#Slide 513#
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)
+pulse=read312("Pulse.csv")#
+with(pulse,model.matrix(~Exercise-1))
+dim(pulse)
+pulse=read312("Pulse.csv")#
+head(with(pulse,model.matrix(~Exercise-1)))
+head(pulse)
+pulse=read312("Pulse.csv",colClass=c(rep("numeric",4),"factor",rep("numeric",2)))#
+with(pulse,model.matrix(~Exercise-1))#
+dim(pulse)#
+head(pulse)
+pulse=read312("Pulse.csv")#
+head(with(pulse,model.matrix(~Exercise-1)))
+pulse$Exercise
+head(pulse)
+read.csv
+?read.csv
+pulse=read312("Pulse.csv",colClasses=c(rep("numeric",4),"factor",rep("numeric",2)))#
+with(pulse,model.matrix(~Exercise-1))
+head(ans)
+pulse=read312("Pulse.csv",colClasses=c(rep("numeric",4),"factor",rep("numeric",2)))#
+pulse=cbind(pulse,with(pulse,model.matrix(~Exercise-1)))
+head(pulse)
+fpulse(Active~Female+Exercise2+Exercise3+Rest,pulse)
+pulse=read312("Pulse.csv",colClasses=c(rep("numeric",4),"factor",rep("numeric",2)))#
+pulse=cbind(pulse,with(pulse,model.matrix(~Exercise-1)))#
+dim(pulse)#
+head(pulse)#
+fpulse=lm(Active~Female+Exercise2+Exercise3+Rest,pulse)
+#Slide 513#
+pulse=read312("Pulse.csv",colClasses=c(rep("numeric",4),"factor",rep("numeric",2)))#
+pulse=cbind(pulse,with(pulse,model.matrix(~Exercise-1)))#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[4]="Female"#
+fpulse=lm(Active~Female+Exercise2+Exercise3+Rest,pulse)
+anova(fpulse)#
+summary(fpulse)
+exam
+exam$Exam
+rep(sample(1:4),5)
+exam$Exam[rep(sample(1:4),5)]
+summary(fexam)
+#Slide 532#
+summary(fexam)#
+anova(fexam)
+exam=read312("FourExams.csv")
+exan
+exam
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+summary(fexam)#
+anova(fexam)
+#Slide 532#
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+dim(exam)#
+head(exam)
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+dim(exam)#
+head(exam)#
+fexam=lm(Grade~Student+Exam,exam)#
+summary(fexam)#
+anova(fexam)
+#Slide 532#
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+dim(exam)#
+head(exam)#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)
+#Slide 529, 532#
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+exam#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)
+anova(fexam)#
+anova(fexam)["Exam","F value"]
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+exam#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)#
+(F=anova(fexam)["Exam","F value"])#
+Fdsn=sapply(1:10^4,function(i) anova(lm(Grade~Student+Exam[rep(sample(1:4,5))],exam))["Exam","F value"])
+rep(sample(1:4,5))
+Fdsn=sapply(1:10^4,function(i) anova(lm(Grade~Student+Exam[rep(sample(1:4),5)],exam))["Exam","F value"])
+#Slide 529, 532#
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+exam#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)#
+(F=anova(fexam)["Exam","F value"]) #Test statistic#
+Fdsn=sapply(1:10^4,function(i) anova(lm(Grade~Student+Exam[rep(sample(1:4),5)],exam))["Exam","F value"])#
+hist(Fdsn,xlab="F",main="Permutation Distribution of F")#
+abline(v=F,col="red",lwd=3)#
+mean(Fdsn>F) #p-value
+F
+summary(Fdsn)
+rep(sample(1:4),5)
+exam$Exam
+exam$Exam[rep(sample(1:4),5)]
+anova(lm(Grade~Student+Exam[rep(sample(1:4),5)],exam))["Exam","F value"]
+sample(1:4)
+blocksample=function(B,A) sapply(1:A, sample(1:B))
+blocksample(4,5)
+blocksample=function(B,A) sapply(1:A, function(i) sample(1:B))
+blocksample(4,5)
+blocksample=function(B,A) as.vector(sapply(1:A, function(i) sample(1:B)))
+blocksample(4,5)
+#Slide 529, 532#
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+exam#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)#
+(F=anova(fexam)["Exam","F value"]) #Test statistic#
+Fdsn=sapply(1:10^3,function(i) anova(lm(Grade~Student+Exam[blocksample(4,5)],exam))["Exam","F value"])#
+hist(Fdsn,xlab="F",main="Permutation Distribution of F")#
+abline(v=F,col="red",lwd=3)#
+mean(Fdsn>F) #p-value
+#Slide 529, 532 (sapply command takes a min)#
+exam=read312("FourExams.csv",colClasses=c("factor","factor","factor","numeric"))#
+exam#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)#
+(F=anova(fexam)["Exam","F value"]) #Test statistic#
+Fdsn=sapply(1:10^4,function(i) anova(lm(Grade~Student+Exam[blocksample(4,5)],exam))["Exam","F value"])#
+hist(Fdsn,xlab="F",main="Permutation Distribution of F")#
+abline(v=F,col="red",lwd=3)#
+mean(Fdsn>F) #p-value
+hawk=read312("HawkTail.csv",colClasses=c("factor","numeric"))#
+dim(hawk)#
+head(hawk)#
+wilcox.test(Tail~Species,hawk) #Will match the p-value
+#NOTE: Run earlier code first. Later lines depend on it.#
+path="https://raw.githubusercontent.com/kjryan13/STAT312/main/CSV/"#
+read312=function(fname,pname=path,...) #
+{#
+  full_path=paste0(pname,fname)#
+  read.csv(full_path,...)#
+}#
+blocksample=function(B,A) as.vector(sapply(1:A, function(i) sample(1:B)))#
+#Slide 461#
+e=abs(resid(lm(Grade~Student,exam)))#
+anova(lm(e~exam$Student)) #Levene's test
+#NOTE: Run earlier code first. Later lines depend on it.#
+path="https://raw.githubusercontent.com/kjryan13/STAT312/main/CSV/"#
+read312=function(fname,pname=path,...) #
+{#
+  full_path=paste0(pname,fname)#
+  read.csv(full_path,...)#
+}#
+blocksample=function(B,A) as.vector(sapply(1:A, function(i) sample(1:B)))#
+#Slide 461#
+exam=read312("FourExams.csv",colClasses=c(rep("factor",3),"numeric"))#
+e=abs(resid(lm(Grade~Student,exam)))#
+anova(lm(e~exam$Student)) #Levene's test
+#Slides 476, 478#
+fexam=lm(Grade~Student,exam)#
+anova(fexam)#
+fexam#
+L=c(0,-.5,-.5,.5,0)#
+(est=sum(coef(fexam)*L)) #Estimate#
+(se=sqrt(t(L)%*%vcov(fexam)%*%L)|> as.vector()) #SE#
+(ts=est/se) #Test stat#
+df=df.residual(fexam) #Degrees of freedom#
+2*pt(-abs(ts),df) #P-value#
+est+qt(c(.025,.975),15)*se #CI
+fexam=lm(Grade~Student,exam)#
+anova(fexam)#
+fexam#
+L=c(0,-.5,-.5,.5,0)#
+(est=sum(coef(fexam)*L)) #Estimate#
+(se=sqrt(t(L)%*%vcov(fexam)%*%L)|> as.vector()) #SE#
+(ts=est/se) #Test stat#
+(dfe=df.residual(fexam)) #Degrees of freedom error#
+2*pt(-abs(ts),dfe) #P-value#
+est+qt(c(.025,.975),15)*se #CI
+#Slide 482#
+hawk=read312("HawkTail.csv",colClasses=c("factor","numeric"))#
+dim(hawk)#
+head(hawk)#
+wilcox.test(Tail~Species,hawk) #Will match the p-value
+#Slides 484, 485#
+exam#
+fexam=lm(Grade~Exam,exam)#
+anova(fexam)#
+par(mfrow=c(1,1))#
+qqnorm(resid(fexam),ylab="Grade Residual")#
+kruskal.test(Grade~Exam,exam)
+#Slide 492 (first step takes a min)#
+Fdsn=sapply(1:10^4, function(i) summary(lm(Grade~sample(Exam),exam))$fstatistic[1])#
+hist(Fdsn,xlab="F",main="Permutation Distribution of F")#
+(F=summary(fexam)$fstatistic[1]) #Test statistic#
+abline(v=F,col="red",lwd=3)#
+mean(Fdsn>F) #p-value
+#Slide 505#
+Grade=exam$Grade#
+Student=exam$Student#
+(df=data.frame(Student,Grade,model.matrix(~Student-1)))#
+anova(lm(Grade~Student)) #ANOVA and MLR with dummies give same MSE#
+anova(lm(Grade~StudentAdam+StudentBrenda+StudentCathy+StudentDave,df))
+#Slide 513#
+pulse=read312("Pulse.csv",colClasses=c(rep("numeric",4),"factor",rep("numeric",2)))#
+pulse=cbind(pulse,with(pulse,model.matrix(~Exercise-1)))#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[4]="Female"#
+fpulse=lm(Active~Female+Exercise2+Exercise3+Rest,pulse)#
+anova(fpulse)#
+summary(fpulse)
+#Slides 529, 532 (sapply command takes a min)#
+exam#
+fexam=lm(Grade~Student+Exam,exam)#
+anova(fexam)#
+(F=anova(fexam)["Exam","F value"]) #Test statistic#
+Fdsn=sapply(1:10^4,function(i) anova(lm(Grade~Student+Exam[blocksample(4,5)],exam))["Exam","F value"])#
+hist(Fdsn,xlab="F",main="Permutation Distribution of F")#
+abline(v=F,col="red",lwd=3)#
+mean(Fdsn>F) #p-value
+pulse=read312("Pulse.csv")
+#NOTE: Run earlier code first. Later lines depend on it.#
+path="https://raw.githubusercontent.com/kjryan13/STAT312/main/CSV/"#
+read312=function(fname,pname=path,...) #
+{#
+  full_path=paste0(pname,fname)#
+  read.csv(full_path,...)#
+}#
+#Slide 539#
+pulse=read312("Pulse.csv")
+dim(pulse)#
+head(pulse)
+#Slide 539#
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[3]="Female"#
+lm(Female~Hgt,pulse) #SLR is bad here
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[3]="Female"#
+lm(Female~Hgt,pulse) #SLR is bad here
+head(pulse)
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[4]="Female"#
+lm(Female~Hgt,pulse) #SLR is bad here
+#Slide 540#
+jit=runif(nrow(pulse),-.1,.1)#
+with(pulse,plot(Hgt,Female+jit,ylab="Famale"))
+#Slide 539#
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[4]="Female"#
+(slr=lm(Female~Hgt,pulse)) #SLR is bad here#
+#Slide 540#
+jit=runif(nrow(pulse),-.1,.1)#
+with(pulse,plot(Hgt,Female+jit,ylab="Female"))#
+abline(h=0:1,lty=3,lwd=2)#
+abline(lm(slr,col="blue",lwd=3))
+#Slide 540#
+jit=runif(nrow(pulse),-.1,.1)#
+with(pulse,plot(Hgt,Female+jit,ylab="Female"))#
+abline(h=0:1,lty=3,lwd=2)#
+abline(slr,col="blue",lwd=3)
+glm(Female~Hgt,binomial,data=pulse)
+putt1=read312("Putts1.csv")
+putt1
+head(putt1)
+putt2=read312("Putts2.csv") #Putt-level data#
+dim(putt2)#
+head(putt2)
+glm(Made~Length,binomial,data=putt1)
+glm(cbind(Made,Missed)~Length,binomial,data=putt2)
+#Slide 545#
+putt2=read312("Putts2.csv") #Distance-level data#
+dim(putt2)#
+head(putt2)#
+glm(cbind(Made,Missed)~Length,binomial,data=putt2)#
+#
+#Slide 546#
+putt1=read312("Putts1.csv") #Putt-level data#
+dim(putt1)#
+head(putt1)#
+glm(Made~Length,binomial,data=putt1) #Same as Putt2
+putt2
+newdata=dataframe(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata))
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata))
+(fputt=glm(Made~Length,binomial,data=putt1)) #Same as Putt2#
+#Slide 547#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata))
+newdatga
+newdata
+predict
+?predict
+(fputt=glm(Made~Length,binomial,data=putt1)) #Same as Putt2#
+#Slide 547#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata,type="reponse"))
+(fputt=glm(Made~Length,binomial,data=putt1)) #Same as Putt2#
+#Slide 547#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata,type="response"))
+#Slide 547#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata)) |> round(3)
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat=putt2$Made/putt2$Trials,piehat=predict(fputt,newdata,type="response")) |> round(3)
+Length=putt2$Length#
+phat=putt2$Made/putt2$Trials#
+piehat=predict(fputt,newdata,type="response")#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat,piehat) |> round(3)
+plot(Length,log(phat/(1-phat)))
+#Slides 547, 548#
+Length=putt2$Length#
+phat=putt2$Made/putt2$Trials#
+piehat=predict(fputt,newdata,type="response")#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat,piehat) |> round(3)#
+(slr=lm(log(phat/(1-phat),Length))#
+plot(Length,log(phat/(1-phat)))#
+abline(slr,col="blue",lwd=3)
+Length=putt2$Length#
+phat=putt2$Made/putt2$Trials#
+piehat=predict(fputt,newdata,type="response")#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat,piehat) |> round(3)#
+(slr=lm(log(phat/(1-phat)~Length))#
+plot(Length,log(phat/(1-phat)))#
+abline(slr,col="blue",lwd=3)
+Length=putt2$Length#
+phat=putt2$Made/putt2$Trials#
+piehat=predict(fputt,newdata,type="response")#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat,piehat) |> round(3)#
+(slr=lm(log(phat/(1-phat))~Length))#
+plot(Length,log(phat/(1-phat)))#
+abline(slr,col="blue",lwd=3)
+fputt
+abline(fputt,col="blue",lwd=3)
+#Slides 547, 548#
+Length=putt2$Length#
+phat=putt2$Made/putt2$Trials#
+piehat=predict(fputt,newdata,type="response")#
+newdata=data.frame(Length=putt2$Length)#
+rbind(phat,piehat) |> round(3)#
+plot(Length,log(phat/(1-phat)))#
+abline(fputt,col="blue",lwd=3)
+plot(Length,phat)#
+abline(h=0:1,lty=3,lwd=2)
+abline(fputt,col="blue",lwd=3)
+#Slide 549#
+plot(Length,phat)#
+abline(h=0:1,lty=3,lwd=2)#
+grid=seq(0,9,length=1000)#
+newdata=data.frame(Length=grid)#
+lines(predict(fputt,newdata),col="blue",lwd=3)
+head(newdata)
+plot(Length,phat)#
+abline(h=0:1,lty=3,lwd=2)#
+grid=seq(0,9,length=1000)#
+newdata=data.frame(Length=grid)#
+lines(predict(fputt,newdata,type="response"),col="blue",lwd=3)
+predict(fputt,newdata,type="response")
+lines(grid,predict(fputt,newdata,type="response"),col="blue",lwd=3)
+plot(Length,phat,ylim=0:1)#
+abline(h=0:1,lty=3,lwd=2)#
+grid=seq(0,9,length=1000)#
+newdata=data.frame(Length=grid)#
+lines(grid,predict(fputt,newdata,type="response"),col="blue",lwd=3)
+#Slide 549#
+plot(Length,phat,ylim=0:1)#
+abline(h=0:1,lty=3,lwd=2)#
+grid=seq(0,9,length=1000)#
+newdata=data.frame(Length=grid)#
+lines(grid,predict(fputt,newdata,type="response"),col="blue",lwd=3)
+phat/(1-phat)
+rbind(phat/(1-phat),piehat/(1-piehat)) |> round(2)
+rbind(phat/(1-phat),piehat/(1-piehat)) |> round(2)#
+log(rbind(phat/(1-phat),piehat/(1-piehat))) |> round(3)
+headache=read312("Migraines.csv")
+headache=read312("Migraines.csv")#
+dim(headache)#
+head(headache)
+(headache=read312("Migraines.csv"))
+(ache=read312("Migraines.csv"))#
+ache
+(ache=read312("Migraines.csv"))#
+with(ache,Yes/No) #Odds
+(ache=read312("Migraines.csv"))#
+(odds=with(ache,Yes/No)) #Odds#
+odds[1]/odds[2] #Odds ratio
+pulse
+head(pulse)
+groups=cut(pulse$Hgt,breaks=c(59,62,65,68,72)+.5,labels=1:5,right=TRUE)
+groups=cut(pulse$Hgt,breaks=c(62,65,68,72)+.5,labels=1:5,right=TRUE)
+?cut
+groups=cut(pulse$Hgt,breaks=c(62,65,68,72)+.5,labels=1:5,right=TRUE)
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)
+table(groups)
+with(pulse,tapply(Hgt,group,min))
+with(pulse,tapply(Hgt,groups,min))
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)#
+tab=cbind(#
+Group=1:5,#
+MinHgt=with(pulse,tapply(Hgt,group,min)),#
+MeanHgt=with(pulse,tapply(Hgt,group,mean)),#
+MaxHgt=with(pulse,tapply(Hgt,group,max)),#
+N=with(pulse,tapply(Female,group,length)),#
+Females=with(pulse,tapply(Female,group,sum))#
+)
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)#
+tab=cbind(#
+Group=1:5,#
+MinHgt=with(pulse,tapply(Hgt,groups,min)),#
+MeanHgt=with(pulse,tapply(Hgt,groups,mean)),#
+MaxHgt=with(pulse,tapply(Hgt,groups,max)),#
+N=with(pulse,tapply(Female,groups,length)),#
+Females=with(pulse,tapply(Female,groups,sum))#
+)
+tab
+groups
+table(groups)
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)#
+tab=cbind(#
+Group=1:5,#
+MinHgt=with(pulse,tapply(Hgt,groups,min)),#
+MeanHgt=with(pulse,tapply(Hgt,groups,mean)),#
+MaxHgt=with(pulse,tapply(Hgt,groups,max)),#
+N=with(pulse,tapply(Female,groups,length)),#
+Females=with(pulse,tapply(Female,groups,sum)))#
+tab$Males=with(tab,Females-N)
+is.data.frame(tab)
+is.matrix(tab)
+tab=data.frame(tab)#
+tab$Males=with(tab,Females-N)
+tab
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)#
+tab=cbind(#
+Group=1:5,#
+MinHgt=with(pulse,tapply(Hgt,groups,min)),#
+MeanHgt=with(pulse,tapply(Hgt,groups,mean)),#
+MaxHgt=with(pulse,tapply(Hgt,groups,max)),#
+N=with(pulse,tapply(Female,groups,length)),#
+Females=with(pulse,tapply(Female,groups,sum)))#
+tab=data.frame(tab)#
+tab$Males=with(tab,N-Females)#
+tab$AdjProp=with(tab,(Females+.5)/(N+1))
+tab
+logit
+#Slide 570#
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)#
+tab=cbind(#
+Group=1:5,#
+MinHgt=with(pulse,tapply(Hgt,groups,min)),#
+MeanHgt=with(pulse,tapply(Hgt,groups,mean)),#
+MaxHgt=with(pulse,tapply(Hgt,groups,max)),#
+N=with(pulse,tapply(Female,groups,length)),#
+Females=with(pulse,tapply(Female,groups,sum)))#
+tab=data.frame(tab)#
+tab$Males=with(tab,N-Females)#
+tab$AdjProp=with(tab,(Females+.5)/(N+1))#
+tab$logitAdjProp=log(tab$AdjProp/(1-tab$AdjProp))
+tab
+with(tab,plot(MeanHgt,logitAdjProp))
+fpulse
+head(pulse)
+with(tab,plot(MeanHgt,logitAdjProp))#
+abline(glm(Female~Hgt,binomial,data=pulse),lwd=3,col="blue")
+glm(Female~Hgt,binomial,data=pulse)
+with(tab,plot(MeanHgt,logitAdjProp,ylim=c(-4,4)))#
+abline(glm(Female~Hgt,binomial,data=pulse),lwd=3,col="blue")
+?abline
+abline(64.1416,      -0.9424 )
+abline(64.1416,      -0.9424,lwd=6 )
+with(tab,plot(MeanHgt,logitAdjProp,ylim=c(-4,4)))#
+abline(glm(Female~Hgt,binomial,data=pulse),lwd=3,col="blue")
+tab
+abline(glm(cbind(Female,Males)~MeanHgt,binomial,data=tab),lwd=3,col="blue")
+with(tab,plot(MeanHgt,logitAdjProp,ylim=c(-4,4)))#
+abline(glm(cbind(Females,Males)~MeanHgt,binomial,data=tab),lwd=3,col="blue")
+tab#
+with(tab,plot(MeanHgt,logitAdjProp,ylim=c(-4,4)))#
+abline(glm(cbind(Females,Males)~MeanHgt,binomial,data=tab),lwd=3,col="blue")
+fput
+fputt
+confint.default(fputt,"Length")
+confint(fputt,"Length")
+confint.default(fputt,"Length") #Slope CI#
+confint.default(fputt,"Length")|>exp() #Odd ratio CI
+#Slide 576#
+confint.default(fputt,"Length")|>round(3) #Slope CI#
+confint.default(fputt,"Length")|>round(exp(_),3) #Odd ratio CI
+confint.default(fputt,"Length")|>round(3) #Slope CI#
+confint.default(fputt,"Length")|>exp()|>round(3) #Odd ratio CI
+logLik(fputt)
+fputt
+summary(fputt)
+719.89-800.21
+anova(fputt, test="Chisq")
+#Slide 539#
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[4]="Female"#
+(slr=lm(Female~Hgt,pulse)) #SLR is bad here#
+#Slide 540#
+jit=runif(nrow(pulse),-.1,.1)#
+with(pulse,plot(Hgt,Female+jit,ylab="Female"))#
+abline(h=0:1,lty=3,lwd=2)#
+abline(slr,col="blue",lwd=3)#
+#Slide 544#
+glm(Female~Hgt,binomial,data=pulse)#
+#Slide 545, 588#
+putt2=read312("Putts2.csv") #Distance-level data#
+dim(putt2)#
+head(putt2)#
+glm(cbind(Made,Missed)~Length,binomial,data=putt2)#
+#Slide 546, 588#
+putt1=read312("Putts1.csv") #Putt-level data#
+dim(putt1)#
+head(putt1)#
+(fputt=glm(Made~Length,binomial,data=putt1)) #Same as Putt2
+#NOTE: Run earlier code first. Later lines depend on it.#
+path="https://raw.githubusercontent.com/kjryan13/STAT312/main/CSV/"#
+read312=function(fname,pname=path,...) #
+{#
+  full_path=paste0(pname,fname)#
+  read.csv(full_path,...)#
+}#
+#Slide 539#
+pulse=read312("Pulse.csv")#
+dim(pulse)#
+head(pulse)#
+colnames(pulse)[4]="Female"#
+(slr=lm(Female~Hgt,pulse)) #SLR is bad here
+#Slide 540#
+jit=runif(nrow(pulse),-.1,.1)#
+with(pulse,plot(Hgt,Female+jit,ylab="Female"))#
+abline(h=0:1,lty=3,lwd=2)#
+abline(slr,col="blue",lwd=3)
+#Slide 544#
+glm(Female~Hgt,binomial,data=pulse)
+#Slides 545, 588#
+putt2=read312("Putts2.csv") #Distance-level data#
+dim(putt2)#
+head(putt2)#
+glm(cbind(Made,Missed)~Length,binomial,data=putt2)
+#Slides 546, 588#
+putt1=read312("Putts1.csv") #Putt-level data#
+dim(putt1)#
+head(putt1)#
+(fputt=glm(Made~Length,binomial,data=putt1)) #Same as Putt2
+#Slides 547, 548, 568#
+Length=putt2$Length#
+phat=putt2$Made/putt2$Trials#
+newdata=data.frame(Length=putt2$Length)#
+piehat=predict(fputt,newdata,type="response")#
+rbind(phat,piehat) |> round(3)#
+plot(Length,log(phat/(1-phat)))#
+abline(fputt,col="blue",lwd=3)
+#Slide 549#
+plot(Length,phat,ylim=0:1)#
+abline(h=0:1,lty=3,lwd=2)#
+grid=seq(0,9,length=1000)#
+newdata=data.frame(Length=grid)#
+lines(grid,predict(fputt,newdata,type="response"),col="blue",lwd=3)
+#Slides 552, 553#
+rbind(phat/(1-phat),piehat/(1-piehat)) |> round(2)#
+log(rbind(phat/(1-phat),piehat/(1-piehat))) |> round(3)
+#Slide 557#
+(ache=read312("Migraines.csv"))#
+(odds=with(ache,Yes/No)) #Odds#
+odds[1]/odds[2] #Odds ratio
+#Slide 570#
+groups=cut(pulse$Hgt,breaks=c(-Inf,62,65,68,72,Inf)+.5,labels=1:5,right=TRUE)#
+tab=cbind(#
+Group=1:5,#
+MinHgt=with(pulse,tapply(Hgt,groups,min)),#
+MeanHgt=with(pulse,tapply(Hgt,groups,mean)),#
+MaxHgt=with(pulse,tapply(Hgt,groups,max)),#
+N=with(pulse,tapply(Female,groups,length)),#
+Females=with(pulse,tapply(Female,groups,sum)))#
+tab=data.frame(tab)#
+tab$Males=with(tab,N-Females)#
+tab$AdjProp=with(tab,(Females+.5)/(N+1))#
+tab$logitAdjProp=log(tab$AdjProp/(1-tab$AdjProp))#
+tab#
+with(tab,plot(MeanHgt,logitAdjProp,ylim=c(-4,4)))#
+abline(glm(cbind(Females,Males)~MeanHgt,binomial,data=tab),lwd=3,col="blue")
+#Slides 576, 582, 584#
+confint.default(fputt,"Length")|>round(3) #Slope CI#
+confint.default(fputt,"Length")|>exp()|>round(3) #Odd ratio CI#
+logLik(fputt) #Slide 582#
+anova(fputt, test="Chisq") #Slide 584
+#NOTE: Run earlier code first. Later lines depend on it.#
+path="https://raw.githubusercontent.com/kjryan13/STAT312/main/CSV/"#
+read312=function(fname,pname=path,...) #
+{#
+  full_path=paste0(pname,fname)#
+  read.csv(full_path,...)#
+}#
+#Slides 113, 115, 119, 122, 127, 129, 136#
+pulse=read312("Pulse.csv")#
+j=which(colnames(pulse)=="Sex")#
+colnames(pulse)[j]="Female"#
+dim(pulse)#
+head(pulse)#
+fpulse=lm(Active~Rest+Hgt+Female,data=pulse)#
+fpulse#
+summary(fpulse) #Gives R^2 and F stat for Slide 115#
+#Slide 115, 127, 129 (gives correct error and total rows)#
+anova(fpulse)#
+#Slide 116#
+cor(pulse[,c("Active","Rest","Female","Hgt")]) |> round(4)#
+#Slide 121#
+par(mfrow=c(1,3))#
+with(pulse,plot(Rest,Active,pch=16))#
+abline(lm(Active~Rest,data=pulse),col="red")#
+with(pulse,plot(Hgt,Active,pch=16))#
+abline(lm(Active~Hgt,data=pulse),col="red")#
+with(pulse,plot(Female,Active,pch=16))#
+abline(lm(Active~Female,data=pulse),col="red")#
+summary(lm(Active~Hgt,data=pulse))#
+#Slide 139#
+newdata=data.frame(Rest=70,Female=1,Hgt=66)#
+predict(fpulse,newdata) |> round(2) #yhat#
+predict(fpulse,newdata,interval="confidence")[,2:3] |> round(2) #CI#
+predict(fpulse,newdata,interval="prediction")[,2:3] |> round(2) #PI#
+#Slide 141#
+par(mfrow=c(1,1))#
+pulse$Sex=ifelse(pulse$Female==1,"Female","Male")#
+boxplot(Active~Sex,data=pulse)#
+#Slides 143, 145, 149, #
+t.test(Active~Sex,data=pulse,var.equal=TRUE)#
+summary(lm(Active~Female,data=pulse))#
+#Slides 146, 147, 149#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest+Female,data=pulse)#
+summary(fpulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1]))#
+newdata=data.frame(Rest=c(40,110),Female=0)#
+lines(c(40,110),predict(fpulse,newdata),col="blue",lty=2)#
+newdata=data.frame(Rest=c(40,110),Female=1)#
+lines(c(40,110),predict(fpulse,newdata),col="red")#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 1, 2),lwd=c(NA, NA, 2, 2))#
+#Slides 150 and 151#
+par(mfrow=c(1,2))#
+plot(fitted(fpulse),resid(fpulse),xlab="Active Predicted",ylab="Active Residual")#
+abline(h=0,lty=3,col="gray")#
+qqnorm(resid(fpulse),ylab="Active Residual")#
+confint(lm(Active~Rest,data=pulse)) |> round(3)#
+#Slides 152 and 154#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest+I(Rest*Female),data=pulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1],#
+  xlim=c(0,110),ylim=c(0,160)))#
+newdata=data.frame(Rest=c(0,110),Female=0)#
+lines(c(0,110),predict(fpulse,newdata),col="blue",lty=2)#
+newdata=data.frame(Rest=c(0,110),Female=1)#
+lines(c(0,110),predict(fpulse,newdata),col="red")#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 1, 2),lwd=c(NA, NA, 2, 2))#
+summary(fpulse)#
+#Slides 155 and 157#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest*Female,data=pulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1]))#
+newdata=data.frame(Rest=c(40,110),Female=0)#
+lines(c(40,110),predict(fpulse,newdata),col="blue",lty=2)#
+newdata=data.frame(Rest=c(40,110),Female=1)#
+lines(c(40,110),predict(fpulse,newdata),col="red")#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 1, 2),lwd=c(NA, NA, 2, 2))#
+summary(fpulse)
+#Slides 146, 147, 149#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest+Female,data=pulse)#
+summary(fpulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1]))#
+newdata=data.frame(Rest=c(40,110),Female=0)#
+lines(c(40,110),predict(fpulse,newdata),col="blue",lty=1)#
+newdata=data.frame(Rest=c(40,110),Female=1)#
+lines(c(40,110),predict(fpulse,newdata),col="red",lty=2)#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 2:1),lwd=c(NA, NA, 2, 2))
+#Slides 150 and 151#
+par(mfrow=c(1,2))#
+plot(fitted(fpulse),resid(fpulse),xlab="Active Predicted",ylab="Active Residual")#
+abline(h=0,lty=3,col="gray")#
+qqnorm(resid(fpulse),ylab="Active Residual")#
+confint(lm(Active~Rest,data=pulse)) |> round(3)
+#Slides 152 and 154#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest+I(Rest*Female),data=pulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1],#
+  xlim=c(0,110),ylim=c(0,160)))#
+newdata=data.frame(Rest=c(0,110),Female=0)#
+lines(c(0,110),predict(fpulse,newdata),col="blue",lty=1)#
+newdata=data.frame(Rest=c(0,110),Female=1)#
+lines(c(0,110),predict(fpulse,newdata),col="red",lty=2)#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 2:1),lwd=c(NA, NA, 2, 2))#
+summary(fpulse)
+#Slides 155 and 157#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest*Female,pulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1]))#
+newdata=data.frame(Rest=c(40,110),Female=0)#
+lines(c(40,110),predict(fpulse,newdata),col="blue",lty=2)#
+newdata=data.frame(Rest=c(40,110),Female=1)#
+lines(c(40,110),predict(fpulse,newdata),col="red")#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 1, 2),lwd=c(NA, NA, 2, 2))#
+summary(fpulse)
+#Slide 160#
+supekar=read312("Supekar.csv")#
+dim(supekar)#
+head(supekar)#
+fsupekar=lm(Cut.Rate~Day+KEL+I(KEL*Day),data=supekar)#
+with(supekar,plot(Day,Cut.Rate,col=c("blue","red")[KEL+1],pch=c("s","k")[KEL+1]))#
+x=c(0,70)#
+newdata=data.frame(Day=x,KEL=0)#
+lines(x,predict(fsupekar,newdata),col="blue",lty=2)#
+newdata=data.frame(Day=x,KEL=1)#
+lines(x,predict(fsupekar,newdata),col="red")#
+fsupekar2=lm(Cut.Rate~offset(Day*sum(coef(fsupekar)[c(2,4)]))+KEL,data=supekar)#
+newdata=data.frame(Day=x,KEL=0)#
+lines(x,predict(fsupekar2,newdata))#
+legend("topright",#
+       legend=c("KEL", "SSS", expression(KEL~hat(y)), expression(SSS~hat(y)), #
+       expression(parallel~SSS~hat(y))),#
+       col=c("red", "blue", "red", "blue","black"),#
+       pch=c("k","s",NA,NA,NA),lty=c(NA,NA,1,2,1),lwd=c(NA,NA,2,2,2))#
+summary(fsupekar)
+fsupekar2
+coef(fsupekar2)
+coef(fsupekar)[c(2,4)]
+sum(ans)
+#NOTE: Run earlier code first. Later lines depend on it.#
+path="https://raw.githubusercontent.com/kjryan13/STAT312/main/CSV/"#
+read312=function(fname,pname=path,...) #
+{#
+  full_path=paste0(pname,fname)#
+  read.csv(full_path,...)#
+}#
+#Slides 113, 115, 119, 122, 127, 129, 136#
+pulse=read312("Pulse.csv")#
+j=which(colnames(pulse)=="Sex")#
+colnames(pulse)[j]="Female"#
+dim(pulse)#
+head(pulse)#
+fpulse=lm(Active~Rest+Hgt+Female,data=pulse)#
+fpulse#
+summary(fpulse) #Gives R^2 and F stat for Slide 115
+#Slide 115, 127, 129 (gives correct error and total rows)#
+anova(fpulse)#
+#Slide 116#
+cor(pulse[,c("Active","Rest","Female","Hgt")]) |> round(4)
+#Slide 121#
+par(mfrow=c(1,3))#
+with(pulse,plot(Rest,Active,pch=16))#
+abline(lm(Active~Rest,data=pulse),col="red")#
+with(pulse,plot(Hgt,Active,pch=16))#
+abline(lm(Active~Hgt,data=pulse),col="red")#
+with(pulse,plot(Female,Active,pch=16))#
+abline(lm(Active~Female,data=pulse),col="red")#
+summary(lm(Active~Hgt,data=pulse))
+#Slide 139#
+newdata=data.frame(Rest=70,Female=1,Hgt=66)#
+predict(fpulse,newdata) |> round(2) #yhat#
+predict(fpulse,newdata,interval="confidence")[,2:3] |> round(2) #CI#
+predict(fpulse,newdata,interval="prediction")[,2:3] |> round(2) #PI
+#Slide 141#
+par(mfrow=c(1,1))#
+pulse$Sex=ifelse(pulse$Female==1,"Female","Male")#
+boxplot(Active~Sex,data=pulse)
+#Slides 143, 145, 149, #
+t.test(Active~Sex,data=pulse,var.equal=TRUE)#
+summary(lm(Active~Female,data=pulse))
+#Slides 146, 147, 149#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest+Female,data=pulse)#
+summary(fpulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1]))#
+newdata=data.frame(Rest=c(40,110),Female=0)#
+lines(c(40,110),predict(fpulse,newdata),col="blue",lty=1)#
+newdata=data.frame(Rest=c(40,110),Female=1)#
+lines(c(40,110),predict(fpulse,newdata),col="red",lty=2)#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 2:1),lwd=c(NA, NA, 2, 2))
+#Slides 150 and 151#
+par(mfrow=c(1,2))#
+plot(fitted(fpulse),resid(fpulse),xlab="Active Predicted",ylab="Active Residual")#
+abline(h=0,lty=3,col="gray")#
+qqnorm(resid(fpulse),ylab="Active Residual")#
+confint(lm(Active~Rest,data=pulse)) |> round(3)
+#Slides 152 and 154#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest+I(Rest*Female),data=pulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1],#
+  xlim=c(0,110),ylim=c(0,160)))#
+newdata=data.frame(Rest=c(0,110),Female=0)#
+lines(c(0,110),predict(fpulse,newdata),col="blue",lty=1)#
+newdata=data.frame(Rest=c(0,110),Female=1)#
+lines(c(0,110),predict(fpulse,newdata),col="red",lty=2)#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 2:1),lwd=c(NA, NA, 2, 2))#
+summary(fpulse)
+#Slides 155 and 157#
+par(mfrow=c(1,1))#
+fpulse=lm(Active~Rest*Female,pulse)#
+with(pulse,plot(Rest,Active,col=c("blue","red")[Female+1],pch=c("m","f")[Female+1]))#
+newdata=data.frame(Rest=c(40,110),Female=0)#
+lines(c(40,110),predict(fpulse,newdata),col="blue",lty=2)#
+newdata=data.frame(Rest=c(40,110),Female=1)#
+lines(c(40,110),predict(fpulse,newdata),col="red")#
+legend("topleft",#
+       legend=c("Male", "Female", expression(Female~hat(y)), expression(Male~hat(y))),#
+       col=c("blue", "red", "red", "blue"),#
+       pch=c("m","f", NA, NA),lty=c(NA, NA, 1, 2),lwd=c(NA, NA, 2, 2))#
+summary(fpulse)
+#Slide 160#
+supekar=read312("Supekar.csv")#
+dim(supekar)#
+head(supekar)#
+fsupekar=lm(Cut.Rate~Day+KEL+I(KEL*Day),data=supekar)#
+with(supekar,plot(Day,Cut.Rate,col=c("blue","red")[KEL+1],pch=c("s","k")[KEL+1]))#
+x=c(0,70)#
+newdata=data.frame(Day=x,KEL=0)#
+lines(x,predict(fsupekar,newdata),col="blue",lty=2)#
+newdata=data.frame(Day=x,KEL=1)#
+lines(x,predict(fsupekar,newdata),col="red")#
+fsupekar2=lm(Cut.Rate~offset(Day*sum(coef(fsupekar)[c(2,4)]))+KEL,data=supekar)#
+newdata=data.frame(Day=x,KEL=0)#
+lines(x,predict(fsupekar2,newdata))#
+legend("topright",#
+       legend=c("KEL", "SSS", expression(KEL~hat(y)), expression(SSS~hat(y)), #
+       expression(parallel~SSS~hat(y))),#
+       col=c("red", "blue", "red", "blue","black"),#
+       pch=c("k","s",NA,NA,NA),lty=c(NA,NA,1,2,1),lwd=c(NA,NA,2,2,2))#
+summary(fsupekar)
+#Slide 165#
+perch=read312("Perch.csv")#
+dim(perch)#
+head(perch)#
+fperch=lm(Weight~Length+Width+I(Length*Width),data=perch)#
+summary(fperch)#
+plot(fitted(fperch),resid(fperch),xlab="Weight Predicted",ylab="Weight Residual")#
+abline(h=0,lty=3,col="gray",lwd=2)
+#Slide 166#
+#install.packages("usmap") # Must to 1-time install#
+#install.packages("ggplot2")#
+library(usmap)#
+library(ggplot2)#
+sat=read312("StateSAT82.csv")#
+sat$state=tolower(state.name[rank(sat$State)])#
+sat[,c("State","state")] #Add spaces and lower case#
+dim(sat)#
+head(sat)#
+plot_usmap(data=sat,regions="states",values="SAT")+#
+scale_fill_continuous(low="blue",high="red",name = "SAT") + labs(title = "State colored by SAT")
+#Slide 168#
+par(mfrow=c(1,2))#
+head(sat)#
+fsat=lm(SAT~Takers,data=sat)#
+with(sat,plot(Takers,SAT,pch=16))#
+abline(fsat,col="red",lwd=3)#
+plot(fitted(fsat),resid(fsat),pch=16,xlab="SAT Predicted",ylab="SAT Residual")#
+abline(h=0,lty=3,col="gray",lwd=2)
+#Slide 171#
+(xbar=mean(sat$Takers))#
+fsat2=lm(SAT~Takers+I((Takers-xbar)^2),data=sat)#
+summary(fsat2)#
+with(sat,plot(Takers,SAT,pch=16))#
+newdata=data.frame(Takers=seq(0,70,length=1000))#
+lines(newdata[,1],predict(fsat2,newdata),col="red",lwd=3)#
+plot(fitted(fsat2),resid(fsat2),pch=16,xlab="SAT Predicted",ylab="SAT Residual")#
+abline(h=0,lty=3,col="gray",lwd=2)
+#Slide 174 and 185#
+fsat3=lm(SAT~Takers+Expend+I(Takers^2)+I(Expend^2)+I(Takers*Expend),data=sat)#
+summary(fsat3)#
+par(mfrow=c(1,1))#
+plot(fitted(fsat3),resid(fsat3),pch=16,xlab="SAT Predicted",ylab="SAT Residual")#
+abline(h=0,lty=3,col="gray",lwd=2)
+#Slide 179#
+grades=read312("MidtermFinalA.csv")#
+dim(grades)#
+head(grades)#
+cor(grades[,c("Final","Midterm","Quiz","Class")]) |> round(4)#
+pairs(grades[,c("Final","Midterm","Quiz","Class")],col="gray",pch=16)
+#Slide 181#
+vif=function(fit) {#
+  mm=model.matrix(fit)[, -1, drop = FALSE]   # drop intercept#
+  vifs=numeric(ncol(mm))#
+  names(vifs)=colnames(mm)#
+  for (i in seq_along(vifs)) {#
+    xi=mm[, i]#
+    xrest=mm[, -i, drop = FALSE]#
+    r2=summary(lm(xi ~ xrest))$r.squared#
+    vifs[i]=1/(1-r2)#
+  }#
+  vifs#
+}#
+fgrades=lm(Final~Midterm+Quiz+Class,data=grades)#
+summary(fgrades)#
+vif(fgrades)
+#Slides 191-193#
+fpulseMLR=lm(Active~Rest+Female+I(Rest*Female),data=pulse)#
+fpulseSLR=lm(Active~Rest,data=pulse)#
+anova(fpulseSLR,fpulseMLR)
