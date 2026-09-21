@@ -65,7 +65,7 @@ do.call(rbind,tab)
 
 
 #Slide 267
-#install.packages("usmap") # Must to 1-time install
+#install.packages("usmap") #1-time installs
 #install.packages("ggplot2")
 library(usmap)
 library(ggplot2)
